@@ -35,10 +35,10 @@
                             "src/favicon-32x32.png",
                             "src/assets",
                             {
-                                "glob": "_redirects",
-                                "input": "src",
-                                "output": "/"
-                            }
+                                "glob": "**/*",
+                                "input": "node_modules/ngx-extended-pdf-viewer/assets/",
+                                "output": "/assets/"
+                              }
                         ],
                         "stylePreprocessorOptions": {
                             "includePaths": [
@@ -53,7 +53,9 @@
                             "src/styles/styles.scss",
                             "src/styles/tailwind.scss"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/mammoth/mammoth.browser.min.js" 
+                        ]
                     },
                     "configurations": {
                         "production": {

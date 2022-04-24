@@ -10,7 +10,7 @@ import { InitialDataResolver } from 'app/app.resolvers';
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/dashboards/project'
-    {path: '', pathMatch : 'full', redirectTo: 'dashboards/project'},
+    {path: '', pathMatch : 'full', redirectTo: 'home'},
 
     // Redirect signed in user to the '/dashboards/project'
     //

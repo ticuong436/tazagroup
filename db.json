@@ -1,0 +1,49 @@
+{
+  "tailieu": [
+    {
+      "item": "abc",
+      "type": "folder",
+      "parentid": 0,
+      "id": 1
+    }
+  ],
+  "files": [],
+  "baihoc": [
+    {
+      "idTailieu": 2,
+      "name": "abaaa",
+      "danhMuc": "",
+      "content": "<p>aaaaaaaaaaaa</p>",
+      "nguoiDuyet": "",
+      "deThi": "",
+      "note": "<p>ssssssssssssssss</p>",
+      "id": 1
+    },
+    {
+      "idTailieu": 2,
+      "name": "aaaaa",
+      "danhMuc": "",
+      "content": "<p>aaaaaaaa</p>",
+      "note": "<p>aaaaaaaaaa</p>",
+      "id": 2
+    }
+  ],
+  "lophoc": [
+    {
+      "idBaihoc": "",
+      "name": "ssssssss",
+      "idHinhthuc": "Chọn Hình Thức",
+      "date": "2022-04-21T16:44",
+      "deadline": "2022-03-29T16:44",
+      "minute": "ssssss",
+      "idGiangvien": "Vui lòng chọn",
+      "idHocvien": "Vui lòng chọn",
+      "idMaDT": "Vui lòng chọn",
+      "idNhomdcDT": "Vui lòng chọn",
+      "idNguoiduyet": "Vui lòng chọn",
+      "linkmeet": "saaaaaaa",
+      "note": "<p>dsdsdsd</p>",
+      "id": 2
+    }
+  ]
+}
