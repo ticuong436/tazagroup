@@ -74,11 +74,8 @@ export class TailieunguonComponent implements OnInit {
             type: ['folder'],
             parentid: 0,
         });
-        this.tailieunguonService
-            .addFolder(this.folderList.value)
-            .subscribe();
-            alert('Vui lòng đổi tên Folder')
-            
+        this.tailieunguonService.addFolder(this.folderList.value).subscribe();
+        alert('Vui lòng đổi tên Folder');
     }
 
     addFolderChild(id) {
@@ -175,7 +172,10 @@ export class TailieunguonComponent implements OnInit {
             .deleteFileDetail(this.filedetail.id)
             .subscribe();
         this.deleteFile = true;
-        this.ngOnInit()
+        this.ngOnInit();
+    }
+    removefolder(id) {
+        this.tailieunguonService.deleteFileDetail(id).subscribe();
     }
 
     deleteFileUpload(fileUpload: FileUpload): void {
@@ -202,6 +202,13 @@ export class TailieunguonComponent implements OnInit {
     selectFile(event: any): void {
         this.selectedFiles = event.target.files;
     }
+    nest = (items, id = '', link = 'parentid') =>
+        items
+            .filter((item) => item[link] == id)
+            .map((item) => ({
+                ...item,
+                children: this.nest(items, item.id),
+            }));
 
     ngOnInit(): void {
         this.folderList = this.fb.group({
@@ -231,16 +238,8 @@ export class TailieunguonComponent implements OnInit {
         this.tailieunguonService.files$.subscribe((result) => {
             // this.files = nest(result)
 
-            this.dataSource.data = nest(result);
+            this.dataSource.data = this.nest(result);
         });
-
-        const nest = (items, id = '', link = 'parentid') =>
-            items
-                .filter((item) => item[link] == id)
-                .map((item) => ({
-                    ...item,
-                    children: nest(items, item.id),
-                }));
     }
     @ViewChild(UploadFileComponent) comp: UploadFileComponent;
 }

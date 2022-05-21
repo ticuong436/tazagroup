@@ -267,6 +267,12 @@
                                         >
                                             Add File
                                         </button>
+                                        <button
+                                        mat-menu-item
+                                        (click)="removefolder(node.id)"
+                                    >
+                                        Remove Folder
+                                    </button>
                                     </mat-menu>
                                 </div>
                                 <!-- use a disabled button to provide padding for tree leaf -->

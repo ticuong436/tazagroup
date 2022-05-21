@@ -1,36 +1,61 @@
 {
   "tailieu": [
     {
-      "item": "abc",
+      "item": "sbc",
       "type": "folder",
       "parentid": 0,
       "id": 1
+    },
+    {
+      "item": "New File",
+      "type": "file",
+      "data": {
+        "tag": "",
+        "idmenu": 0,
+        "tailieu": "vvvvvvvvvv",
+        "date": "",
+        "deadline": "",
+        "content": "",
+        "note": "",
+        "author": "",
+        "sameAuthor": "",
+        "censor": ""
+      },
+      "parentid": 1,
+      "id": 2
     }
   ],
   "files": [],
   "baihoc": [
     {
       "idTailieu": 2,
-      "name": "abaaa",
-      "danhMuc": "",
-      "content": "<p>aaaaaaaaaaaa</p>",
-      "nguoiDuyet": "",
-      "deThi": "",
-      "note": "<p>ssssssssssssssss</p>",
+      "name": "bài tập hít đất",
+      "content": "<p>hít 10 cái</p>",
+      "note": "<p>aaaaaaa</p>",
       "id": 1
     },
     {
       "idTailieu": 2,
-      "name": "aaaaa",
-      "danhMuc": "",
+      "name": "aaa",
       "content": "<p>aaaaaaaa</p>",
-      "note": "<p>aaaaaaaaaa</p>",
+      "nguoiDuyet": "Vui lòng chọn",
+      "deThi": "Vui lòng chọn",
+      "note": "<p>sssssssssss</p>",
       "id": 2
+    },
+    {
+      "idTailieu": "Vui lòng chọn",
+      "name": "Học hành",
+      "content": "<p>aaaaaaa</p>",
+      "nguoiDuyet": "Vui lòng chọn",
+      "deThi": "2",
+      "note": "<p>ssssssss</p>",
+      "id": 3
     }
   ],
   "lophoc": [
     {
-      "idBaihoc": "",
+      "idBaihoc": 1,
       "name": "ssssssss",
       "idHinhthuc": "Chọn Hình Thức",
       "date": "2022-04-21T16:44",
@@ -42,8 +67,194 @@
       "idNhomdcDT": "Vui lòng chọn",
       "idNguoiduyet": "Vui lòng chọn",
       "linkmeet": "saaaaaaa",
-      "note": "<p>dsdsdsd</p>",
+      "note": "<p>dsdsdsdj</p>",
+      "id": 2
+    },
+    {
+      "idBaihoc": 2,
+      "name": "qqqwwwwwwwwww",
+      "idHinhthuc": "",
+      "date": "",
+      "deadline": "",
+      "minute": "",
+      "idGiangvien": "",
+      "idHocvien": "",
+      "idMaDT": "",
+      "idNhomdcDT": "",
+      "idNguoiduyet": "",
+      "linkmeet": "",
+      "note": "",
+      "id": 3
+    },
+    {
+      "idBaihoc": 3,
+      "name": "lớp diu",
+      "idHinhthuc": "Chọn Hình Thức",
+      "date": "2022-04-30T10:12",
+      "deadline": "2022-05-22T10:12",
+      "minute": "22",
+      "idGiangvien": "Vui lòng chọn",
+      "idHocvien": "Vui lòng chọn",
+      "idMaDT": "",
+      "idNhomdcDT": "",
+      "idNguoiduyet": "Vui lòng chọn",
+      "linkmeet": "aaaaa",
+      "note": "<p>saaaâ</p>",
+      "id": 4
+    }
+  ],
+  "cauhoi": [
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>cuong</p>",
+      "capdo": "Khó",
+      "traloi": {
+        "0": "cuong",
+        "1": "hanh",
+        "2": "sang"
+      },
+      "type": "1",
+      "dapan": {
+        "1": "hanh"
+      },
+      "idNguoiduyet": "Vui lòng chọn",
+      "note": "<p>cuong</p>",
+      "tags": "Vui lòng chọn",
+      "id": 1
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>ssssssss</p>",
+      "capdo": "Trung bình",
+      "type": "2",
+      "dapan": "",
+      "idNguoiduyet": "Vui lòng chọn",
+      "note": "<p>ssssssssssss</p>",
+      "tags": "",
+      "id": 2
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>xxxxxxxxxxxx</p>",
+      "capdo": "Dễ",
+      "type": "2",
+      "dapan": "",
+      "idNguoiduyet": "Vui lòng chọn",
+      "note": "<p>zzzzz</p>",
+      "tags": "",
+      "id": 3
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>cuong</p>",
+      "capdo": "Khó",
+      "type": "2",
+      "dapan": "<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>",
+      "idNguoiduyet": "Vui lòng chọn",
+      "note": "<p>ananaa</p>",
+      "tags": "",
+      "id": 4
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>",
+      "capdo": "Trung bình",
+      "type": "2",
+      "dapan": "<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>",
+      "idNguoiduyet": "",
+      "note": "",
+      "tags": "",
+      "id": 5
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>aaaâ</p>",
+      "capdo": "Khó",
+      "traloi": {
+        "0": "cuong",
+        "1": "hanh",
+        "2": "cacaaaâ"
+      },
+      "type": "1",
+      "dapan": {
+        "1": "hanh"
+      },
+      "idNguoiduyet": "Vui lòng chọn",
+      "note": "<p>aaaaaaa</p>",
+      "tags": "",
+      "id": 6
+    },
+    {
+      "idTailieunguon": "",
+      "cauhoi": "<p>aaaaaaa22222222</p>",
+      "capdo": "Khó",
+      "type": "",
+      "dapan": {
+        "0": "cuong"
+      },
+      "idNguoiduyet": "",
+      "note": "<p>aaaaaaaaaaaa</p>",
+      "tags": "",
+      "id": 7
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>qqqqqqqq</p>",
+      "capdo": "Trung bình",
+      "traloi": {
+        "0": "qqqqqqqqq"
+      },
+      "type": "1",
+      "dapan": {
+        "0": "qqqqqqqqq"
+      },
+      "idNguoiduyet": "Vui lòng chọn",
+      "note": "<p>qqqqqqqqqq</p>",
+      "tags": "",
+      "id": 8
+    },
+    {
+      "idTailieunguon": 2,
+      "cauhoi": "<p>aaaasssss</p>",
+      "capdo": "Trung bình",
+      "traloi": {
+        "0": "ada",
+        "1": "banana",
+        "2": "sssssssss"
+      },
+      "type": "1",
+      "dapan": {
+        "2": "sssssssss"
+      },
+      "idNguoiduyet": "",
+      "note": "<p>sssssss</p>",
+      "tags": "",
+      "id": 9
+    }
+  ],
+  "dethi": [
+    {
+      "idTailieunguon": "",
+      "idNguoiduyet": "",
+      "diem": 7,
+      "idCauhoi": [
+        1,
+        2,
+        3
+      ],
+      "note": "",
+      "id": 1
+    },
+    {
+      "idTailieunguon": "",
+      "idNguoiduyet": "Chọn Hình Thức",
+      "idCauhoi": [
+        3,
+        2
+      ],
+      "note": "<p>aaaaaa</p>",
       "id": 2
     }
-  ]
+  ],
+  "kythi":[]
 }

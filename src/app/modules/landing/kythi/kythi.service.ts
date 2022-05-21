@@ -3,28 +3,29 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, switchMap, take, tap } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root'
 })
-export class BaihocService {
-    private urlApi = 'http://localhost:3000/baihoc';
-    private _baihoc: BehaviorSubject<any | null> = new BehaviorSubject(null);
+export class KythiService {
+
+  private urlApi = 'http://localhost:3000/kythi';
+    private _kythi: BehaviorSubject<any | null> = new BehaviorSubject(null);
 
     constructor(private http: HttpClient) {}
 
-    get baihoc$(): Observable<any> {
-        return this._baihoc.asObservable();
+    get kythi$(): Observable<any> {
+        return this._kythi.asObservable();
     }
     uploadBaihoc(data) {
-        return this.baihoc$.pipe(
+        return this.kythi$.pipe(
             take(1),
             switchMap((res) =>
                 this.http.post(this.urlApi, data).pipe(
-                    map((baihoc) => {
+                    map((kythi) => {
                         console.log(data);
 
-                        this._baihoc.next([baihoc, ...res]);
+                        this._kythi.next([kythi, ...res]);
 
-                        return baihoc;
+                        return kythi;
                     })
                 )
             )
@@ -34,34 +35,34 @@ export class BaihocService {
     getBaihoc() {
       return this.http.get(this.urlApi).pipe(
           tap((res) => {
-              this._baihoc.next(res);
+              this._kythi.next(res);
               return res;
           })
       );
   }
   updateBaihoc(data){
-    return this.baihoc$.pipe(
+    return this.kythi$.pipe(
       take(1),
       switchMap((res) =>
           this.http.patch(this.urlApi+`/${data.id}`, data).pipe(
-              map((baihoc) => {
-                  this._baihoc.next([baihoc, ...res]);
+              map((kythi) => {
+                  this._kythi.next([kythi, ...res]);
 
-                  return baihoc;
+                  return kythi;
               })
           )
       )
   );
   }
   deleteBaihoc(id) {
-    return this.baihoc$.pipe(
+    return this.kythi$.pipe(
         take(1),
-        switchMap((baihoc) =>
+        switchMap((kythi) =>
             this.http.delete(this.urlApi + `/${id}`).pipe(
                 map((isDelete) => {
-                    const updateBaihoc = baihoc.filter((e) => e.id != id);
+                    const updateBaihoc = kythi.filter((e) => e.id != id);
 
-                    this._baihoc.next(updateBaihoc);
+                    this._kythi.next(updateBaihoc);
                     return isDelete;
                 })
             )

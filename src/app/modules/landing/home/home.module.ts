@@ -14,13 +14,21 @@ import { BaihocComponent } from '../baihoc/baihoc.component';
 import {LophocComponent} from '../lophoc/lophoc.component'
 import { UploadFileComponent } from '../tailieunguon/upload-file/upload-file.component';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { CauhoiComponent } from '../cauhoi/cauhoi.component';
+import { DethiComponent } from '../dethi/dethi.component';
+import { KythiComponent } from '../kythi/kythi.component';
+import {CustomModule} from '../custom/custom.module'
 @NgModule({
     declarations: [
         LandingHomeComponent,
         TailieunguonComponent,
         BaihocComponent,
         LophocComponent,
-        UploadFileComponent
+        UploadFileComponent,
+        CauhoiComponent,
+        DethiComponent,
+        KythiComponent
+        
     ],
     imports     : [
         RouterModule.forChild(landingHomeRoutes),
@@ -32,8 +40,8 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
         PdfViewerModule,
         ReactiveFormsModule,
         FormsModule,
-        NgxDocViewerModule
-
+        NgxDocViewerModule,
+        CustomModule
     ]
 })
 export class LandingHomeModule

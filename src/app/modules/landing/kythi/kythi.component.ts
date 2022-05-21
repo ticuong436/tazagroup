@@ -3,55 +3,57 @@ import { TailienguonService } from '../tailieunguon/tailienguon.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { map } from 'rxjs';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { BaihocService } from './baihoc.service';
 import { DethiService } from '../dethi/dethi.service';
+import { KythiService } from './kythi.service';
+
 
 @Component({
-    selector: 'app-baihoc',
-    templateUrl: './baihoc.component.html',
-    styleUrls: ['./baihoc.component.scss'],
+  selector: 'app-kythi',
+  templateUrl: './kythi.component.html',
+  styleUrls: ['./kythi.component.scss']
 })
-export class BaihocComponent implements OnInit {
-    tailieu: any;
-    baihoc: any[];
+export class KythiComponent implements OnInit {
+
+  tailieu: any;
+    kythi: any[];
     dethi:any[];
     baihocDetail: any;
-    baihocList: FormGroup;
+    kythiList: FormGroup;
     public Editor = ClassicEditor;
 
     constructor(
         private tailieunguonService: TailienguonService,
         private fb: FormBuilder,
-        private baihocService: BaihocService,
+        private kythiService: KythiService,
         private dethiService: DethiService
     ) {}
 
     onSubmit() {
-        this.baihocService.uploadBaihoc(this.baihocList.value).subscribe();
+        this.kythiService.uploadBaihoc(this.kythiList.value).subscribe();
         alert('Tạo bài học thành công');
         this.resetForm();
     }
     deleteBaihoc(id) {
-        this.baihocService.deleteBaihoc(id).subscribe;
+        this.kythiService.deleteBaihoc(id).subscribe;
     }
 
     onSelect(item) {
-        this.baihocList.addControl('id', new FormControl(item.id));
-        this.baihocList.get('id').setValue(item.id);
+        this.kythiList.addControl('id', new FormControl(item.id));
+        this.kythiList.get('id').setValue(item.id);
 
-        this.baihocList.get('idTailieu').setValue(item.idTailieu);
+        this.kythiList.get('idTailieu').setValue(item.idTailieu);
 
-        this.baihocList.get('name').setValue(item.name);
-        this.baihocList.get('danhMuc').setValue(item.danhMuc);
+        this.kythiList.get('name').setValue(item.name);
+        this.kythiList.get('danhMuc').setValue(item.danhMuc);
 
-        this.baihocList.get('content').setValue(item.content);
-        this.baihocList.get('nguoiDuyet').setValue(item.nguoiDuyet);
-        this.baihocList.get('deThi').setValue(item.deThi);
-        this.baihocList.get('note').setValue(item.note);
+        this.kythiList.get('content').setValue(item.content);
+        this.kythiList.get('nguoiDuyet').setValue(item.nguoiDuyet);
+        this.kythiList.get('deThi').setValue(item.deThi);
+        this.kythiList.get('note').setValue(item.note);
     }
     resetForm() {
-        this.baihocList.removeControl('id');
-        this.baihocList = this.fb.group({
+        this.kythiList.removeControl('id');
+        this.kythiList = this.fb.group({
             idTailieu: [0],
             name: [''],
             danhMuc: [''],
@@ -64,13 +66,13 @@ export class BaihocComponent implements OnInit {
     updateBaihoc() {
         alert('Cập nhật thành công');
 
-        this.baihocService.updateBaihoc(this.baihocList.value).subscribe();
+        this.kythiService.updateBaihoc(this.kythiList.value).subscribe();
         this.resetForm();
         this.ngOnInit();
     }
 
     ngOnInit(): void {
-        this.baihocList = this.fb.group({
+        this.kythiList = this.fb.group({
             idTailieu: [0],
             name: [''],
             danhMuc: [''],
@@ -81,11 +83,11 @@ export class BaihocComponent implements OnInit {
         });
         this.dethiService.getDethi().subscribe();
         this.dethiService.dethi$.subscribe((res) => (this.dethi = res));
-        this.baihocService.getBaihoc().subscribe();
-        this.baihocService.baihoc$.subscribe((res) => {
+        this.kythiService.getBaihoc().subscribe();
+        this.kythiService.kythi$.subscribe((res) => {
             console.log(res);
 
-            return (this.baihoc = res);
+            return (this.kythi = res);
         });
         this.tailieunguonService.getFile().subscribe();
         this.tailieunguonService.files$

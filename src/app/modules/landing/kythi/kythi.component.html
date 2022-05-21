@@ -9,7 +9,7 @@
             <div class="flex flex-col items-center">
                 <div
                     class="py-2"
-                    *ngFor="let item of baihoc"
+                    *ngFor="let item of kythi"
                     (click)="onSelect(item)"
                 >
                     {{ item.name }}
@@ -30,25 +30,19 @@
               <div class="w-8 h-0.5 bg-gray-600"></div>
           </div>
       </button> -->
-        <form [formGroup]="baihocList">
+        <form [formGroup]="kythiList">
             <div class="h-full">
                 <div class="flex justify-between flex-col lg:flex-row">
                     <mat-form-field
                         class="fuse-mat-emphasized-affix lg:w-1/2 w-full"
                         appearance="fill"
                     >
-                        <span matPrefix>Tài Liệu Nguồn </span>
+                        <span matPrefix>Loại Kỳ Thi </span>
 
                         <mat-select [formControlName]="'idTailieu'">
                             <mat-option value="Vui lòng chọn"
-                                >Vui lòng chọn
+                                >Kiểm tra theo bài học
                             </mat-option>
-
-                            <mat-option
-                                *ngFor="let item of tailieu"
-                                [value]="item.id"
-                                >{{ item.item }}</mat-option
-                            >
                         </mat-select>
                     </mat-form-field>
 
@@ -56,7 +50,7 @@
                         class="fuse-mat-emphasized-affix lg:w-1/2 w-full lg:mx-3"
                         appearance="fill"
                     >
-                        <span matPrefix>Tên Bài Học </span>
+                        <span matPrefix>Nhập Tên Kỳ Thi </span>
                         <input
                             matInput
                             type="text"
@@ -69,50 +63,96 @@
                         class="fuse-mat-emphasized-affix lg:w-1/2 w-full"
                         appearance="fill"
                     >
-                        <span matPrefix>Danh Mục Đào Tạo </span>
+                        <span matPrefix>Đề thi </span>
                         <mat-select [formControlName]="'danhMuc'">
-                            <mat-option>a</mat-option>
+                            <mat-option *ngFor="let item of dethi"
+                                >Đề Thi Số {{ item.id }}</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                 </div>
 
-                <div class="flex flex-col">
-                    <div class="w-full">
-                        <ckeditor
-                            [editor]="Editor"
-                            data="<p>Nội Dung</p>"
-                            [formControlName]="'content'"
-                        ></ckeditor>
-                    </div>
-                </div>
                 <div class="flex justify-between flex-col lg:flex-row pt-5">
                     <mat-form-field
-                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full lg:mr-3"
+                        class="fuse-mat-emphasized-affix lg:w-1/3 w-full "
                         appearance="fill"
                     >
-                        <span matPrefix>Người Duyệt </span>
-                        <mat-select [formControlName]="'nguoiDuyet'">
+                        <span matPrefix>Hình Thức Thi </span>
+
+                        <mat-select [formControlName]="'idTailieu'">
                             <mat-option value="Vui lòng chọn"
-                                >Vui lòng chọn</mat-option
-                            >
+                                >Online
+                            </mat-option>
+                            <mat-option value="Vui lòng chọn"
+                                >Offline
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field
-                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full lg:ml-3"
+                        class="fuse-mat-emphasized-affix lg:w-2/6 w-full lg:ml-3"
                         appearance="fill"
                     >
-                        <span matPrefix>Đề Thi</span>
-                        <mat-select [formControlName]="'deThi'">
-                            <mat-option
-                                value="{{ item.id }}"
-                                *ngFor="let item of dethi"
-                                >Đề thi số {{ item.id }}</mat-option
-                            >
+                        <span matPrefix>Dự kiến triển khai </span>
+                        <input
+                            matInput
+                            type="datetime-local"
+                            class="w-full h-full text-red-500"
+                            placeholder="start date"
+                            [formControlName]="'date'"
+                        />
+                    </mat-form-field>
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-2/6 lg:ml-3 w-full"
+                        appearance="fill"
+                    >
+                        <span matPrefix>Thời Gian Kết Thúc </span>
+                        <input
+                            matInput
+                            type="datetime-local"
+                            class="w-full h-full text-red-500"
+                            placeholder="end date"
+                            [formControlName]="'deadline'"
+                        />
+                    </mat-form-field>
+                </div>
+                <div class="flex justify-between flex-col lg:flex-row">
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full"
+                        appearance="fill"
+                    >
+                        <span matPrefix>Tên Nhóm</span>
+
+                        <mat-select [formControlName]="'idTailieu'">
+                            <mat-option value="Vui lòng chọn"
+                                >Kiểm tra theo bài học
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full lg:mx-3"
+                        appearance="fill"
+                    >
+                        <span matPrefix>Học Viên </span>
+                        <mat-select [formControlName]="'danhMuc'">
+                            <mat-option>abc </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full"
+                        appearance="fill"
+                    >
+                        <span matPrefix>Người Duyệt </span>
+                        <mat-select [formControlName]="'danhMuc'">
+                            <mat-option>abc </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
+
+               
                 <div class="flex flex-col">
                     <div class="w-full">
+                        <p>Ghi Chú</p>
                         <ckeditor
                             [editor]="Editor"
                             data="<p>Ghi Chú</p>"

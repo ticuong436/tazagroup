@@ -4,10 +4,17 @@
             <div
                 class="mx-3 bg-gray-300 flex justify-center items-center py-2 rounded-lg cursor-pointer addFolder"
             >
-                <div class="rounded-full px-1 bg-blue-100 mr-2">+</div>
-                <div class="text-gray-500">New Folder</div>
+                <div class="text-gray-500 text-xl">Danh sách lớp học</div>
             </div>
-            <div></div>
+            <div class="flex flex-col items-center">
+                <div
+                    class="py-2"
+                    *ngFor="let item of lophoc"
+                    (click)="onChange(item)"
+                >
+                    {{ item.name }}
+                </div>
+            </div>
         </div>
     </div>
 
@@ -27,40 +34,18 @@
             <div class="h-full">
                 <div class="flex justify-between flex-col lg:flex-row">
                     <mat-form-field
-                        class="fuse-mat-emphasized-affix w-full"
-                        appearance="fill"
-                    >
-                        <span matPrefix>Lớp học </span>
-                        
-                        <mat-select [formControlName]="'idBaihoc'" >
-                            <mat-option value="Vui lòng chọn"
-                                >Vui lòng chọn
-                            </mat-option>
-                            <mat-option [value]="item.name" *ngFor="let item of lophoc " (click)="onChange(item)"
-                            >{{item.name}}
-                        </mat-option>
-
-                            
-                        </mat-select>
-                    </mat-form-field>
-
-                    
-                
-                </div>
-                <div class="flex justify-between flex-col lg:flex-row">
-                    <mat-form-field
                         class="fuse-mat-emphasized-affix lg:w-2/6 w-full"
                         appearance="fill"
                     >
                         <span matPrefix>Bài Học </span>
-                        
-                        <mat-select >
-                           
-                            <mat-option [value]="item.name" *ngFor="let item of baihoc"
-                            >{{item.name}}
-                        </mat-option>
 
+                        <mat-select  [formControlName]="'idBaihoc'">
                             
+                            <mat-option
+                                [value]="item.id"
+                                *ngFor="let item of baihoc"
+                                >{{ item.name }}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
 
@@ -78,47 +63,49 @@
                         />
                     </mat-form-field>
                     <mat-form-field
-                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full "
+                        class="fuse-mat-emphasized-affix lg:w-1/2 w-full"
                         appearance="fill"
                     >
-                        <span matPrefix>Hình Thức  </span>
+                        <span matPrefix>Hình Thức </span>
                         <mat-select [formControlName]="'idHinhthuc'">
-                            <mat-option value="Chọn Hình Thức">Chọn Hình Thức</mat-option>
+                            <mat-option value="Chọn Hình Thức"
+                                >Chọn Hình Thức</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div
-                class="flex justify-between flex-col lg:flex-row"
-            >
-                <mat-form-field
-                    class="fuse-mat-emphasized-affix lg:w-2/6 w-full"
-                    appearance="fill"
-                >
-                    <span matPrefix>Dự kiến triển khai </span>
-                    <input
-                        matInput
-                        type="datetime-local"
-                        class="w-full h-full text-red-500"
-                        placeholder="start date"
-                        [formControlName]="'date'">
-                    />
-                </mat-form-field>
-                <mat-form-field
-                    class="fuse-mat-emphasized-affix lg:w-2/6 lg:mx-3 w-full"
-                    appearance="fill"
-                >
-                    <span matPrefix>Thời Gian Kết Thúc </span>
-                    <input
-                        matInput
-                        type="datetime-local"
-                        class="w-full h-full text-red-500"
-                        placeholder="end date"
-                        [formControlName]="'deadline'">
+                <div class="flex justify-between flex-col lg:flex-row">
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-2/6 w-full"
+                        appearance="fill"
+                    >
+                        <span matPrefix>Dự kiến triển khai </span>
+                        <input
+                            matInput
+                            type="datetime-local"
+                            class="w-full h-full text-red-500"
+                            placeholder="start date"
+                            [formControlName]="'date'"
+                        />
+                        
+                    </mat-form-field>
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-2/6 lg:mx-3 w-full"
+                        appearance="fill"
+                    >
+                        <span matPrefix>Thời Gian Kết Thúc </span>
+                        <input
+                            matInput
+                            type="datetime-local"
+                            class="w-full h-full text-red-500"
+                            placeholder="end date"
+                            [formControlName]="'deadline'"
+                        />
 
-                    />
-                </mat-form-field>
-                <mat-form-field
-                        class="fuse-mat-emphasized-affix lg:w-2/6 w-full "
+                        
+                    </mat-form-field>
+                    <mat-form-field
+                        class="fuse-mat-emphasized-affix lg:w-2/6 w-full"
                         appearance="fill"
                     >
                         <span matPrefix>Thời Gian Kiểm Tra </span>
@@ -130,11 +117,9 @@
                             [formControlName]="'minute'"
                         />
                         <span MatSuffix>Phút</span>
-
                     </mat-form-field>
-            </div>
+                </div>
 
-                
                 <div class="flex justify-between flex-col lg:flex-row pt-5">
                     <mat-form-field
                         class="fuse-mat-emphasized-affix lg:w-1/2 w-full lg:mr-3"
@@ -142,7 +127,9 @@
                     >
                         <span matPrefix>Giảng Viên </span>
                         <mat-select [formControlName]="'idGiangvien'">
-                            <mat-option value="Vui lòng chọn">Vui lòng chọn</mat-option>
+                            <mat-option value="Vui lòng chọn"
+                                >Vui lòng chọn</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field
@@ -151,7 +138,9 @@
                     >
                         <span matPrefix>Học Viên</span>
                         <mat-select [formControlName]="'idHocvien'">
-                            <mat-option value="Vui lòng chọn">Vui lòng chọn</mat-option>
+                            <mat-option value="Vui lòng chọn"
+                                >Vui lòng chọn</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -163,7 +152,9 @@
                     >
                         <span matPrefix>Mã Yêu Cầu Đào Tạo</span>
                         <mat-select [formControlName]="'idMaDT'">
-                            <mat-option value="Vui lòng chọn">Vui lòng chọn</mat-option>
+                            <mat-option value="Vui lòng chọn"
+                                >Vui lòng chọn</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field
@@ -172,7 +163,9 @@
                     >
                         <span matPrefix>Nhóm Được Đào Tạo</span>
                         <mat-select [formControlName]="'idNhomdcDT'">
-                            <mat-option value="Vui lòng chọn">Vui lòng chọn</mat-option>
+                            <mat-option value="Vui lòng chọn"
+                                >Vui lòng chọn</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -183,7 +176,9 @@
                     >
                         <span matPrefix>Người Duyệt</span>
                         <mat-select [formControlName]="'idNguoiduyet'">
-                            <mat-option value="Vui lòng chọn">Vui lòng chọn</mat-option>
+                            <mat-option value="Vui lòng chọn"
+                                >Vui lòng chọn</mat-option
+                            >
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field
@@ -220,15 +215,15 @@
                         Submit
                     </button>
                     <button
-                    type="submit"
-                    class="btn text-white bg-indigo-100 p-3 rounded-lg mx-5"
-                    (click)="updateLophoc()"
-                >
-                    Update
-                </button>
+                        type="submit"
+                        class="btn text-white bg-indigo-600 p-3 rounded-lg mx-5"
+                        (click)="updateLophoc()"
+                    >
+                        Update
+                    </button>
                     <button
                         type="delete"
-                        class="btn text-white bg-red-500 p-3 rounded-lg "
+                        class="btn text-white bg-red-500 p-3 rounded-lg"
                         (click)="deleteLophoc()"
                     >
                         Delete

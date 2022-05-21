@@ -14,7 +14,7 @@ export class LophocComponent implements OnInit {
     lophocList: FormGroup;
     lophoc: any[];
     baihoc: any;
-    idLophoc:number;
+    idLophoc: number;
     public Editor = ClassicEditor;
 
     constructor(
@@ -23,7 +23,11 @@ export class LophocComponent implements OnInit {
         private baihocService: BaihocService
     ) {}
     onSubmit() {
+        alert('update thành công');
         this.lophocService.addLophoc(this.lophocList.value).subscribe();
+        this.resetForm()
+    }
+    resetForm() {
         this.lophocList = this.fb.group({
             idBaihoc: [''],
             name: [''],
@@ -40,59 +44,36 @@ export class LophocComponent implements OnInit {
             note: [''],
         });
     }
-    onChange(item){
-      this.idLophoc = item.id
-    
-      this.lophocList.get('idBaihoc').setValue(item.idBaihoc);
-      this.lophocList.get('name').setValue(item.name);
-      this.lophocList.get('idHinhthuc').setValue(item.idHinhthuc);
-      this.lophocList.get('date').setValue(item.date);
-      this.lophocList.get('deadline').setValue(item.deadline);
-      this.lophocList.get('minute').setValue(item.minute);
-      this.lophocList.get('idGiangvien').setValue(item.idGiangvien);
-      this.lophocList.get('idHocvien').setValue(item.idHocvien);
-      this.lophocList.get('idMaDT').setValue(item.idMaDT);
-      this.lophocList.get('idNhomdcDT').setValue(item.idNhomdcDT);
-      this.lophocList.get('idNguoiduyet').setValue(item.idNguoiduyet);
-      this.lophocList.get('linkmeet').setValue(item.linkmeet);
-      this.lophocList.get('note').setValue(item.note);
+    onChange(item) {
+        this.idLophoc = item.id;
 
+        this.lophocList.get('idBaihoc').setValue(item.idBaihoc);
+        this.lophocList.get('name').setValue(item.name);
+        this.lophocList.get('idHinhthuc').setValue(item.idHinhthuc);
+        this.lophocList.get('date').setValue(item.date);
+        this.lophocList.get('deadline').setValue(item.deadline);
+        this.lophocList.get('minute').setValue(item.minute);
+        this.lophocList.get('idGiangvien').setValue(item.idGiangvien);
+        this.lophocList.get('idHocvien').setValue(item.idHocvien);
+        this.lophocList.get('idMaDT').setValue(item.idMaDT);
+        this.lophocList.get('idNhomdcDT').setValue(item.idNhomdcDT);
+        this.lophocList.get('idNguoiduyet').setValue(item.idNguoiduyet);
+        this.lophocList.get('linkmeet').setValue(item.linkmeet);
+        this.lophocList.get('note').setValue(item.note);
     }
     deleteLophoc() {
-      this.lophocService.deleteLophoc(this.idLophoc).subscribe()
-      this.lophocList = this.fb.group({
-        idBaihoc: [''],
-        name: [''],
-        idHinhthuc: [''],
-        date: [''],
-        deadline: [''],
-        minute: [''],
-        idGiangvien: [''],
-        idHocvien: [''],
-        idMaDT: [''],
-        idNhomdcDT: [''],
-        idNguoiduyet: [''],
-        linkmeet: [''],
-        note: [''],
-    });
+        alert('update thành công');
+
+        this.lophocService.deleteLophoc(this.idLophoc).subscribe();
+        this.resetForm();
     }
-    updateLophoc(){
-        this.lophocService.updateFile(this.idLophoc, this.lophocList.value).subscribe()
-        this.lophocList = this.fb.group({
-            idBaihoc: [''],
-            name: [''],
-            idHinhthuc: [''],
-            date: [''],
-            deadline: [''],
-            minute: [''],
-            idGiangvien: [''],
-            idHocvien: [''],
-            idMaDT: [''],
-            idNhomdcDT: [''],
-            idNguoiduyet: [''],
-            linkmeet: [''],
-            note: [''],
-        });
+    updateLophoc() {
+        alert('update thành công');
+        this.lophocService
+            .updateFile(this.idLophoc, this.lophocList.value)
+            .subscribe();
+        this.resetForm();
+        this.ngOnInit();
     }
     ngOnInit(): void {
         this.baihocService.getBaihoc().subscribe();
@@ -106,24 +87,10 @@ export class LophocComponent implements OnInit {
         this.lophocService.getLophoc().subscribe();
         this.lophocService.lophoc$.subscribe((res: any) => {
             console.log(res);
-            
-            return  this.lophoc = res
+
+            return (this.lophoc = res);
         });
 
-        this.lophocList = this.fb.group({
-            idBaihoc: [''],
-            name: [''],
-            idHinhthuc: [''],
-            date: [''],
-            deadline: [''],
-            minute: [''],
-            idGiangvien: [''],
-            idHocvien: [''],
-            idMaDT: [''],
-            idNhomdcDT: [''],
-            idNguoiduyet: [''],
-            linkmeet: [''],
-            note: [''],
-        });
+       this.resetForm()
     }
 }
