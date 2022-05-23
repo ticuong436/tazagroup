@@ -17,7 +17,8 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { CauhoiComponent } from '../cauhoi/cauhoi.component';
 import { DethiComponent } from '../dethi/dethi.component';
 import { KythiComponent } from '../kythi/kythi.component';
-import {CustomModule} from '../custom/custom.module'
+import {CustomModule} from '../custom/custom.module';
+import {YeucaudaotaoComponent} from '../yeucaudaotao/yeucaudaotao.component'
 @NgModule({
     declarations: [
         LandingHomeComponent,
@@ -27,7 +28,8 @@ import {CustomModule} from '../custom/custom.module'
         UploadFileComponent,
         CauhoiComponent,
         DethiComponent,
-        KythiComponent
+        KythiComponent,
+        YeucaudaotaoComponent
         
     ],
     imports     : [

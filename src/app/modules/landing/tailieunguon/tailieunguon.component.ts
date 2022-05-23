@@ -16,6 +16,8 @@ interface ExampleFlatNode {
     expandable: boolean;
     item: string;
     level: number;
+    id: any;
+    parentid: any;
 }
 @Component({
     selector: 'app-tailieunguon',
@@ -53,6 +55,7 @@ export class TailieunguonComponent implements OnInit {
 
     treeControl = new FlatTreeControl<ExampleFlatNode>(
         (node) => node.level,
+
         (node) => node.expandable
     );
 
@@ -68,6 +71,12 @@ export class TailieunguonComponent implements OnInit {
         this.treeFlattener
     );
     hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+    expandNode() {
+        console.log(this.treeControl.dataNodes[3]);
+
+        this.treeControl.expand(this.treeControl.dataNodes[2]);
+        this.treeControl.expand(this.treeControl.dataNodes[3]);
+    }
     addFolder() {
         this.folderList = this.fb.group({
             item: ['New Folder'],
@@ -78,10 +87,25 @@ export class TailieunguonComponent implements OnInit {
         alert('Vui lòng đổi tên Folder');
     }
 
-    addFolderChild(id) {
-        this.folderList.get('parentid').setValue(id);
+    addFolderChild(node) {
+        this.folderList.get('parentid').setValue(node.id);
+        console.log(node);
 
-        this.tailieunguonService.addFolder(this.folderList.value).subscribe();
+        this.tailieunguonService
+            .addFolder(this.folderList.value)
+            .subscribe((res) => {
+                this.treeControl.expand(
+                    this.treeControl.dataNodes.find((v) => v.id == node.id)
+                );
+               let x = this.files.find(v => v.id == node.parentid);
+                while(x)
+                {
+                    this.treeControl.expand(
+                        this.treeControl.dataNodes.find((v) => v.id == x.id)
+                    );
+                  x =  this.files.find(v => v.id == x.parentid); 
+                }
+            });
     }
     updateFile(data, e) {
         this.fileList.addControl('id', new FormControl(data.id));
@@ -237,7 +261,7 @@ export class TailieunguonComponent implements OnInit {
         this.tailieunguonService.getFile().subscribe();
         this.tailieunguonService.files$.subscribe((result) => {
             // this.files = nest(result)
-
+            this.files = result
             this.dataSource.data = this.nest(result);
         });
     }

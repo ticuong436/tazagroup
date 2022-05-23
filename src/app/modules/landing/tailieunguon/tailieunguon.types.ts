@@ -3,5 +3,5 @@ export interface Files {
     id:number;
     type:string;
     parentid:number;
-    children?: Files[];
+    children: Files[];
   }

@@ -1,56 +1,166 @@
 {
   "tailieu": [
     {
-      "item": "sbc",
+      "item": "1",
       "type": "folder",
       "parentid": 0,
       "id": 1
     },
     {
-      "item": "New File",
-      "type": "file",
-      "data": {
-        "tag": "",
-        "idmenu": 0,
-        "tailieu": "vvvvvvvvvv",
-        "date": "",
-        "deadline": "",
-        "content": "",
-        "note": "",
-        "author": "",
-        "sameAuthor": "",
-        "censor": ""
-      },
+      "item": "2",
+      "type": "folder",
       "parentid": 1,
       "id": 2
-    }
-  ],
-  "files": [],
-  "baihoc": [
-    {
-      "idTailieu": 2,
-      "name": "bài tập hít đất",
-      "content": "<p>hít 10 cái</p>",
-      "note": "<p>aaaaaaa</p>",
-      "id": 1
     },
     {
-      "idTailieu": 2,
-      "name": "aaa",
-      "content": "<p>aaaaaaaa</p>",
-      "nguoiDuyet": "Vui lòng chọn",
-      "deThi": "Vui lòng chọn",
-      "note": "<p>sssssssssss</p>",
-      "id": 2
-    },
-    {
-      "idTailieu": "Vui lòng chọn",
-      "name": "Học hành",
-      "content": "<p>aaaaaaa</p>",
-      "nguoiDuyet": "Vui lòng chọn",
-      "deThi": "2",
-      "note": "<p>ssssssss</p>",
+      "item": "3",
+      "type": "folder",
+      "parentid": 2,
       "id": 3
+    },
+    {
+      "item": "4",
+      "type": "folder",
+      "parentid": 3,
+      "id": 4
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 1,
+      "id": 5
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 5,
+      "id": 6
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 1,
+      "id": 7
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 1,
+      "id": 8
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 8,
+      "id": 9
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 8,
+      "id": 10
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 6,
+      "id": 11
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 9,
+      "id": 12
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 1,
+      "id": 13
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 1,
+      "id": 14
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 14,
+      "id": 15
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 14,
+      "id": 16
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 2,
+      "id": 17
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 2,
+      "id": 18
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 18,
+      "id": 19
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 19,
+      "id": 20
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 1,
+      "id": 21
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 2,
+      "id": 22
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 22,
+      "id": 23
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 23,
+      "id": 24
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 24,
+      "id": 25
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 25,
+      "id": 26
+    },
+    {
+      "item": "New Folder",
+      "type": "folder",
+      "parentid": 21,
+      "id": 27
     }
   ],
   "lophoc": [
@@ -256,5 +366,5 @@
       "id": 2
     }
   ],
-  "kythi":[]
+  "kythi": []
 }

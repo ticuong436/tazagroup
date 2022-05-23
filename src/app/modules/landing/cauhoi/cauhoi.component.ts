@@ -100,7 +100,6 @@ export class CauhoiComponent implements OnInit {
 
         this.cauhoiList.get('idNguoiduyet').setValue(item.idNguoiduyet);
         this.cauhoiList.get('note').setValue(item.note);
-        let a = [{ '1': 'abc0' }, { '1': 'abc0' }, { '1': 'abc0' }];
         this.cauhoiList.get('tags').setValue(item.tags);
     }
 
